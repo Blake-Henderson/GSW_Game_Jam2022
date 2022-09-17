@@ -4,5 +4,9 @@ using UnityEngine;
 
 public class SpellDataManager : MonoBehaviour
 {
-    public Spell data;
+    /// <summary>
+    /// The list of spells the player has
+    /// </summary>
+    public List<Spell> spells;
+    
 }

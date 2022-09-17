@@ -27,6 +27,7 @@ public class Spell : ScriptableObject
     /// </summary>
     public enum specialEffects
     {
+        Null,
         Stun,
         AOE,
         DOT,
