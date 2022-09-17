@@ -6,13 +6,18 @@ using Pathfinding;
 
 public class EnemyAI : MonoBehaviour
 {
+    [SerializeField] float rayObjectDistance;
 
+    public LayerMask LayerMask;
     public Transform target;
+    public GameObject rayObject;
 
     public float speed = 100f;
     public float nextWaypointDistance = 5f;
 
+
     Path path;
+    float aiDirection;
     int currentWaypoint = 0;
     bool reachedEndOfPath = false;
 
@@ -24,6 +29,7 @@ public class EnemyAI : MonoBehaviour
     {
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
+        aiDirection = 0f;
 
         InvokeRepeating("UpdatePath", 0f, .5f);
     }
@@ -46,9 +52,25 @@ public class EnemyAI : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.TransformDirection(Vector2.up), 10f);
-        if (hit.transform.gameObject.tag == "Player")
+        
+        
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.right, rayObjectDistance, LayerMask);
+        Debug.DrawRay(rayObject.transform.position, Vector2.right * hit.distance, Color.red);
+        if (hit.collider != null)
+        {
+            Debug.Log("Enemy Detected");
             Debug.Log("Hit something: " + hit.collider.name);
+            //Debug.DrawRay(hit.collider.transform.position, -Vector2.up * hit.distance * new Vector2(aiDirection, 0f), Color.red);
+        }
+        else
+        {
+            Debug.Log("NO Enemy Detected");
+            //Debug.Log("Hit something: " + hit.collider.name);
+            //Debug.DrawRay(hit.collider.transform.position, -Vector2.up * hit.distance * new Vector2(aiDirection, 0f), Color.green);
+        }
+    
+            
+            
         
         if (path == null)
             return;

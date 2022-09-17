@@ -477,6 +477,7 @@ GameObject:
   - component: {fileID: 276076619}
   - component: {fileID: 276076618}
   - component: {fileID: 276076617}
+  - component: {fileID: 276076622}
   m_Layer: 0
   m_Name: Emeny (4)
   m_TagString: Untagged
@@ -496,7 +497,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a84b63d0f61df2d4db5c5d6bd40158e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rayObjectDistance: 5
+  LayerMask:
+    serializedVersion: 2
+    m_Bits: 128
   target: {fileID: 1097481965}
+  rayObject: {fileID: 1306625478}
   speed: 100
   nextWaypointDistance: 5
 --- !u!50 &276076618
@@ -519,7 +525,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!58 &276076619
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -576,10 +582,26 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1306625479}
   - {fileID: 1979084672}
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &276076622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 276076616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 211114f518373824c9d3e343331fc15b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
+  maxHealth: 5
+  currentHealth: 0
 --- !u!1 &284081007
 GameObject:
   m_ObjectHideFlags: 0
@@ -632,7 +654,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &426678862
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1744,6 +1766,37 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!1 &1306625478
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1306625479}
+  m_Layer: 0
+  m_Name: rayObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1306625479
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1306625478}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.52, y: -0.01, z: -2.8994446}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 276076621}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1337517729
 GameObject:
   m_ObjectHideFlags: 0
@@ -2308,7 +2361,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 276076621}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1979084673
 SpriteRenderer:
