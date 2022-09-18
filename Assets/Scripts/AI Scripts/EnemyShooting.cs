@@ -9,7 +9,7 @@ public class EnemyShooting : MonoBehaviour
     public Transform firePoint;
     public GameObject enemyProjectilePrefab;
     public EnemyHealth health;
-    
+
 
     public float coolDown = 1f;
     public float attacktimer = 1f;
