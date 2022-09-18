@@ -7,11 +7,20 @@ public class CompSlots : MonoBehaviour
     [SerializeField] private GameObject elementSlot;
     [SerializeField] private GameObject attackSlot;
     [SerializeField] private GameObject effectSlot; 
-    public SpellHolder craftSpell = new SpellHolder();
+    public GameObject craftedSpell;
+    public SpellHolder craftSpell;
 
     public Element element = null;
     public Range range = null;
     public SpecialEffects effect = null;
+    
+    private void Start()
+    {
+        craftSpell = craftedSpell.GetComponent<SpellHolder>();
+        GetComponent<Slot>().contents = craftedSpell;
+        GetComponent<Slot>().contents.GetComponent<DragAndDrop>().slot = gameObject.GetComponent<Slot>();
+    }
+
     private void Update()
     {
         if (elementSlot.GetComponent<Slot>().contents != null)
@@ -40,6 +49,15 @@ public class CompSlots : MonoBehaviour
         {
             effect = null;
         }
+
+        if (effectSlot.GetComponent<Slot>().contents != null && 
+        attackSlot.GetComponent<Slot>().contents != null && 
+        elementSlot.GetComponent<Slot>().contents != null &&
+        craftSpell!=null)
+        {
+            craft();
+        }
+
         
     }
 
@@ -48,14 +66,16 @@ public class CompSlots : MonoBehaviour
         
         if (element != null && range != null)
         {
+            craftSpell.spell = new Spell();
             if (effect == null)
             {
-            craftSpell.spell.updateSpell((int)(element.element),(int)(range.range),(int)(SpecialEffects.specialEffects.Null));
+                craftSpell.spell.updateSpell((int)(element.element),(int)(range.range),(int)(SpecialEffects.specialEffects.Null));
             }
             else
             {
-            craftSpell.spell.updateSpell((int)(element.element),(int)(range.range),(int)(effect.specialEffect));
+                craftSpell.spell.updateSpell((int)(element.element),(int)(range.range),(int)(effect.specialEffect));
             }
+
 
         }
     }

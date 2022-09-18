@@ -29,15 +29,25 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
     public void OnDrag(PointerEventData eventData)
     {
         Debug.Log("OnDrag");
-        rectTransform.anchoredPosition += eventData.delta; /// canvas.scaleFactor;
+        if (GetComponent<ComponentType>().type == ComponentType.types.spell)
+        {
+            if(GetComponent<SpellHolder>().spell != null)
+            {
+                rectTransform.anchoredPosition += eventData.delta; //canvas.scaleFactor;   
+            }
+        }
+        else
+        {
+            rectTransform.anchoredPosition += eventData.delta; //canvas.scaleFactor;
+        }
     }
 
     //called at drag start
     public void OnBeginDrag(PointerEventData eventData)
     {
-        if (GameObject.GetComponent<ComponentType>().type == spell)
+        if (GetComponent<ComponentType>().type == ComponentType.types.spell)
         {
-            if(GameObject.GetComponent<SpellHolder>().spell != null)
+            if(GetComponent<SpellHolder>().spell != null)
             {
                 if (slot != null)
                 {
