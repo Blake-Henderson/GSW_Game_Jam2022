@@ -80,7 +80,7 @@ public class SpellProjectile : MonoBehaviour
                 collision.gameObject.GetComponent<EnemyHealth>().TakeDamage(damage);
             }
         }
-        if(collision.tag != "Player")
+        if(collision.tag != "Player" && collision.tag !="Respawn")
         {
             Destroy(gameObject);
         }        

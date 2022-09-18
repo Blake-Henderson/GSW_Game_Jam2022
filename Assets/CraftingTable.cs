@@ -8,7 +8,7 @@ public class CraftingTable : MonoBehaviour
 
     private bool CraftingOpen = false;
 
-    public GameObject test;
+    public GameObject SpellCraftUI;
 
     //interactable = false
 
@@ -26,20 +26,20 @@ public class CraftingTable : MonoBehaviour
         {
             interactable = false;
             Debug.Log("exit");
-            test.SetActive(false);
+            SpellCraftUI.SetActive(false);
         }
     }
 
     public void Open()
     {
-        test.SetActive(true);
+        SpellCraftUI.SetActive(true);
         //Time.timeScale = 0f;
         Debug.Log("Open");
         CraftingOpen = true;
     }
     public void Close()
     {
-        test.SetActive(false);
+        SpellCraftUI.SetActive(false);
         //Time.timeScale = 1f;
         CraftingOpen = false;
     }
