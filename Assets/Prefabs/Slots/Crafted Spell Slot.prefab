@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5743970956520646224}
   - component: {fileID: 5743970956520646226}
   - component: {fileID: 658454730695883702}
+  - component: {fileID: -1112012863419204735}
   m_Layer: 5
   m_Name: Crafted Spell Slot
   m_TagString: Untagged
@@ -90,6 +91,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c59757a6ded66934b826483c26346999, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  contents: {fileID: 0}
 --- !u!114 &658454730695883702
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -103,3 +105,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 3
+--- !u!114 &-1112012863419204735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5743970956520646230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a5e3da9b63ab704a9eeb5ee14627499, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  elementSlot: {fileID: 0}
+  rangeSlot: {fileID: 0}
+  specialSlot: {fileID: 0}
