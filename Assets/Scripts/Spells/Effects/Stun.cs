@@ -10,4 +10,9 @@ public class Stun : MonoBehaviour
      * mew timer for immune to stun
      * when done breing immune destroy this script
      */
+    //public List<Color> colors;
+    //private void Start()
+    //{
+    //    gameObject.GetComponent<SpriteRenderer>().color = colors[((int)gameObject.GetComponent<SpellDataManager>().spells[0].type)];
+    //}
 }
