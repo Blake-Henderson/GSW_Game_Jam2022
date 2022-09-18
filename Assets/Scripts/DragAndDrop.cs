@@ -15,6 +15,9 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
         rectTransform = GetComponent<RectTransform>(); 
         canvasGroup = GetComponent<CanvasGroup>();
     }
+    
+    
+    
     // OnPointerDown is called when the mose is pressed down
     public void OnPointerDown(PointerEventData eventData)
     {
