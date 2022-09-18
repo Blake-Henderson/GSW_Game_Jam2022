@@ -317,6 +317,7 @@ GameObject:
   - component: {fileID: 2076666265809598756}
   - component: {fileID: 2076666265809598755}
   - component: {fileID: 2076666265809598752}
+  - component: {fileID: 7131679933195757323}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -356,7 +357,8 @@ MonoBehaviour:
   body: {fileID: 2076666265809598756}
   spriteRenderer: {fileID: 2076666265809598752}
   HealthSlider: {fileID: 2076666265201715607}
-  health: 5
+  maxHealth: 5
+  currentHealth: 0
   movementSpeed: 100
 --- !u!50 &2076666265809598756
 Rigidbody2D:
@@ -457,6 +459,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &7131679933195757323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2076666265809598759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c4b90dd1860af149bfa92a796f2b221, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spells: []
+  selectedSpell: 0
+  maxSize: 3
 --- !u!1 &2076666266215185073
 GameObject:
   m_ObjectHideFlags: 0
