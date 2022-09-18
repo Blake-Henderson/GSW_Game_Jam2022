@@ -13,4 +13,5 @@ public class SpecialEffects : MonoBehaviour
         Slow,
         LifeSteal
     }
+    public specialEffects specialeffect;
 }

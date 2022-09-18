@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class Range : MonoBehaviour
 {
-    public enum range
+    public enum ranges
     {
         Melee,
         Ranged
     }
+    public ranges range;
 }

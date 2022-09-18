@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class Element : MonoBehaviour
 {
-    enum element{
+    public enum elements{
         Ather,
         Water,
         Fire,
         Earth,
         Wind
     }
+    public elements element;
 }
