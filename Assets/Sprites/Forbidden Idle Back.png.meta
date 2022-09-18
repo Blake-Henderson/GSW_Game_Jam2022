@@ -42,7 +42,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -103,7 +103,133 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Forbidden Idle Back_0
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 2079
+        width: 769
+        height: 961
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c605c549a55bc248a43bfdaa4f5261d
+      internalID: -1294507158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Forbidden Idle Back_1
+      rect:
+        serializedVersion: 2
+        x: 1151
+        y: 2079
+        width: 769
+        height: 993
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bfa1c986d8ac231428706347befa01f6
+      internalID: -692847869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Forbidden Idle Back_2
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 1054
+        width: 769
+        height: 963
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6fc01fe9d8baa446a2f3d2a2f3a76fa
+      internalID: -227221046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Forbidden Idle Back_3
+      rect:
+        serializedVersion: 2
+        x: 1151
+        y: 1054
+        width: 769
+        height: 930
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4574f094a5314049ad924723c48d9c1
+      internalID: 547097278
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Forbidden Idle Back_4
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 769
+        height: 928
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fbd2da48b4306354abd54817d179a172
+      internalID: 101357351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Forbidden Idle Back_5
+      rect:
+        serializedVersion: 2
+        x: 1151
+        y: 31
+        width: 769
+        height: 930
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f805c618018a5eb418a085e590111eaf
+      internalID: -1075747529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -114,7 +240,13 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Forbidden Idle Back_4: 101357351
+      Forbidden Idle Back_0: -1294507158
+      Forbidden Idle Back_5: -1075747529
+      Forbidden Idle Back_3: 547097278
+      Forbidden Idle Back_2: -227221046
+      Forbidden Idle Back_1: -692847869
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
