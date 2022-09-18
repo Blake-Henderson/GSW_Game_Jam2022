@@ -2,17 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NewBehaviourScript : MonoBehaviour
+public class HotbarAdd : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public List<GameObject> slots;
+    public SpellDataManager spells;
+    public void Update()
+        {
+            for(int i = 0; i<slots.Count; i++)
+            {
+                if(slots[i].GetComponent<Slot>().contents != null)
+                {
+                    Spell temp = slots[i].GetComponent<Slot>().contents.GetComponent<SpellHolder>().spell;
+                    Debug.Log(i);
+                    spells.spells[i]= temp;
+                }
+            }
+        }
 }
