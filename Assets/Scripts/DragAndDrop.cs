@@ -9,7 +9,7 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
     private CanvasGroup canvasGroup;
     public Slot slot = null;
 
-    [SerializeField] private Canvas canvas; 
+    //[SerializeField] private Canvas canvas; 
 
     private void Awake()
     {
@@ -29,7 +29,7 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
     public void OnDrag(PointerEventData eventData)
     {
         Debug.Log("OnDrag");
-        rectTransform.anchoredPosition += eventData.delta / canvas.scaleFactor;
+        rectTransform.anchoredPosition += eventData.delta; /// canvas.scaleFactor;
     }
 
     //called at drag start
