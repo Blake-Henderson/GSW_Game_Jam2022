@@ -49,6 +49,7 @@ public class PlayerShoot : MonoBehaviour
     private void FixedUpdate()
     {
         Vector2 lookDir = mousePos - rb.position;
+        rb.position = gameObject.transform.parent.transform.position;
         float angle = Mathf.Atan2(lookDir.y,lookDir.x) * Mathf.Rad2Deg -90.0f;
         rb.rotation = angle;
     }
