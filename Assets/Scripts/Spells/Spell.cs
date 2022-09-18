@@ -97,7 +97,7 @@ public class Spell : ScriptableObject
         //attach relvent scripts to enemy
     }
 
-    void updateSpell(int element, int mode, int effect)
+    public void updateSpell(int element, int mode, int effect)
     {
         type = (damageType) element;
         attack = (attackType) mode;
