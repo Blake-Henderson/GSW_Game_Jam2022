@@ -69,8 +69,10 @@ public class AOE : MonoBehaviour
             }
             if (lifeSteal)
             {
-
+                if (damageMultipler> 0)
+                    GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().TakeDamage(-1 * damageMultipler);
             }
+            collision.gameObject.GetComponent<EnemyHealth>().TakeDamage(damageMultipler);
         }
 
     }

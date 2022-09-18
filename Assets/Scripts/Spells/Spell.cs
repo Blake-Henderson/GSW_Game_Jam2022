@@ -96,4 +96,11 @@ public class Spell : ScriptableObject
         return damage;
         //attach relvent scripts to enemy
     }
+
+    void updateSpell(int element, int mode, int effect)
+    {
+        type = (damageType) element;
+        attack = (attackType) mode;
+        effects = (specialEffects)effect;
+    }
 }

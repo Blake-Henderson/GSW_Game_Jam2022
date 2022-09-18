@@ -54,6 +54,7 @@ public class MeleeSpell : MonoBehaviour
                     collision.gameObject.AddComponent<Slow>();
                 }
             }
+            collision.gameObject.GetComponent<EnemyHealth>().TakeDamage(damage);
         }
         if (collision.tag != "Player")
         {
