@@ -10,8 +10,14 @@ public class EnemyAI : MonoBehaviour
 
     public LayerMask LayerMask;
     public Transform target;
+    public Transform firePoint;
+    public GameObject enemyProjectilePrefab;
     public GameObject rayObject;
+    private GameObject targetObj;
 
+    public float bulletForce = 20f;
+    public float coolDown = 0f;
+    public float attacktimer = 0f;
     public float speed = 100f;
     public float nextWaypointDistance = 5f;
 
@@ -30,6 +36,7 @@ public class EnemyAI : MonoBehaviour
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
         aiDirection = 0f;
+        attacktimer = 0f;
 
         InvokeRepeating("UpdatePath", 0f, .5f);
     }
@@ -49,17 +56,36 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
+    void Shoot()
+    {
+        GameObject temp = Instantiate(enemyProjectilePrefab, firePoint.position, firePoint.rotation);
+        Rigidbody2D rd = temp.GetComponent<Rigidbody2D>();
+        rd.AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
+        //temp.GetComponent<EnemyBullet>().colorIndex = (int)gameObject.GetComponent<EnemyHealth>.type;
+
+    }
+
+    // FixedUpdate is called once every few frames
     void FixedUpdate()
     {
+        attacktimer = Time.deltaTime;
+        if (attacktimer >= coolDown)
+        {
+            Shoot();    
+            attacktimer = 0f;
+        }
         
+        Vector2 targetPos = target.position;
+        Vector2 Direction = targetPos - (Vector2)transform.position;
         
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.right, rayObjectDistance, LayerMask);
+        RaycastHit2D hit = Physics2D.Raycast(rayObject.transform.position, Direction);
+
         Debug.DrawRay(rayObject.transform.position, Vector2.right * hit.distance, Color.red);
-        if (hit.collider != null)
+        if (hit.transform.gameObject.tag != "Player")
         {
             Debug.Log("Enemy Detected");
             Debug.Log("Hit something: " + hit.collider.name);
+            path = null;
             //Debug.DrawRay(hit.collider.transform.position, -Vector2.up * hit.distance * new Vector2(aiDirection, 0f), Color.red);
         }
         else
@@ -68,8 +94,10 @@ public class EnemyAI : MonoBehaviour
             //Debug.Log("Hit something: " + hit.collider.name);
             //Debug.DrawRay(hit.collider.transform.position, -Vector2.up * hit.distance * new Vector2(aiDirection, 0f), Color.green);
         }
-    
-            
+
+        Vector2 lookDir = (Vector2)targetObj.transform.position - rb.position;
+        float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90f;
+        rb.rotation = angle;
             
         
         if (path == null)

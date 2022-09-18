@@ -17,7 +17,7 @@ public class EnemyHealth : MonoBehaviour
     };
 
     public element type;
-    public int maxHealth = 5;
+    public int maxHealth = 20;
     public int currentHealth;
     
     // Start is called before the first frame update

@@ -17,7 +17,7 @@ public class DOT : MonoBehaviour
      *delete after last tick
      */
     public float tickTime = 1.0f;
-    public int maxTicks = 3;
+    public int maxTicks = 5;
     public int damageMultiplier = 1;
     public bool lifeSteal = false;
 

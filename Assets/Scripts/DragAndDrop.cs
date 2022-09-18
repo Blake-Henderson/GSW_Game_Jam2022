@@ -7,6 +7,7 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
 {
     private RectTransform rectTransform;
     private CanvasGroup canvasGroup;
+    public Slot slot = null;
 
     [SerializeField] private Canvas canvas; 
 
@@ -34,6 +35,11 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
     //called at drag start
     public void OnBeginDrag(PointerEventData eventData)
     {
+        if (slot != null)
+        {
+            slot.Remove();
+            slot = null;
+        }
         Debug.Log("BeginDrag");
         canvasGroup.alpha = 0.6f;
         canvasGroup.blocksRaycasts = false;

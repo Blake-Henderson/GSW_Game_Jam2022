@@ -47,4 +47,53 @@ public class Spell : ScriptableObject
     /// What effect(s) this spell has
     /// </summary>
     public specialEffects effects;    
+
+    public int getDamage(GameObject gameObject)
+    {
+        int damage = 1;
+        //the switch for effects AOE->DOT->Stun->Slow->Life steal
+        switch (type)
+        {
+            case Spell.damageType.Ather:
+                if (gameObject.GetComponent<EnemyHealth>().type == EnemyHealth.element.Ather)
+                    damage = 2;
+                else
+                    damage = 1;
+                break;
+            case Spell.damageType.Water:
+                if (gameObject.GetComponent<EnemyHealth>().type == EnemyHealth.element.Fire)
+                    damage = 2;
+                else if (gameObject.GetComponent<EnemyHealth>().type == EnemyHealth.element.Earth)
+                    damage = 0;
+                else
+                    damage = 1;
+                break;
+            case Spell.damageType.Fire:
+                if (gameObject.GetComponent<EnemyHealth>().type == EnemyHealth.element.Wind)
+                    damage = 2;
+                else if (gameObject.GetComponent<EnemyHealth>().type == EnemyHealth.element.Water)
+                    damage = 0;
+                else
+                    damage = 1;
+                break;
+            case Spell.damageType.Earth:
+                if (gameObject.GetComponent<EnemyHealth>().type == EnemyHealth.element.Water)
+                    damage = 2;
+                else if (gameObject.GetComponent<EnemyHealth>().type == EnemyHealth.element.Wind)
+                    damage = 0;
+                else
+                    damage = 1;
+                break;
+            case Spell.damageType.Wind:
+                if (gameObject.GetComponent<EnemyHealth>().type == EnemyHealth.element.Earth)
+                    damage = 2;
+                else if (gameObject.GetComponent<EnemyHealth>().type == EnemyHealth.element.Fire)
+                    damage = 0;
+                else
+                    damage = 1;
+                break;
+        }
+        return damage;
+        //attach relvent scripts to enemy
+    }
 }
