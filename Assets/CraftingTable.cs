@@ -4,8 +4,62 @@ using UnityEngine;
 
 public class CraftingTable : MonoBehaviour
 {
-   private void OnTriggerEnter(Collider Player)
+    public bool interactable = false;
+
+    private bool CraftingOpen = false;
+
+    public GameObject test;
+
+    //interactable = false
+
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Crafting");
+        if(collision.gameObject.tag == "Player")
+        {
+            interactable = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D Player)
+    {
+        if(Player.gameObject.tag == "Player")
+        {
+            interactable = false;
+            Debug.Log("exit");
+            test.SetActive(false);
+        }
+    }
+
+    public void Open()
+    {
+        test.SetActive(true);
+        //Time.timeScale = 0f;
+        Debug.Log("Open");
+        CraftingOpen = true;
+    }
+    public void Close()
+    {
+        test.SetActive(false);
+        //Time.timeScale = 1f;
+        CraftingOpen = false;
+    }
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.E)&& interactable)
+        {
+            Debug.Log("Interact");
+            if (!CraftingOpen)
+            {
+                Open();
+            }
+            else
+            {
+                Close();
+            }
+        }
+        else if(!interactable)
+        {
+            Close();
+        }
     }
 }
