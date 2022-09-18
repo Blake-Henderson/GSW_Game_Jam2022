@@ -7,6 +7,7 @@ public class CompSlots : MonoBehaviour
     [SerializeField] private GameObject elementSlot;
     [SerializeField] private GameObject attackSlot;
     [SerializeField] private GameObject effectSlot; 
+    public SpellHolder craftSpell = new SpellHolder();
 
     public Element element = null;
     public Range range = null;
@@ -41,5 +42,23 @@ public class CompSlots : MonoBehaviour
         }
         
     }
+
+    private void craft()
+    {
+        
+        if (element != null && range != null)
+        {
+            if (effect == null)
+            {
+            craftSpell.spell.updateSpell((int)(element.element),(int)(range.range),(int)(SpecialEffects.specialEffects.Null));
+            }
+            else
+            {
+            craftSpell.spell.updateSpell((int)(element.element),(int)(range.range),(int)(effect.specialEffect));
+            }
+
+        }
+    }
+
     
 }

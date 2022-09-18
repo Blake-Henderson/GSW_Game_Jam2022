@@ -35,14 +35,32 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
     //called at drag start
     public void OnBeginDrag(PointerEventData eventData)
     {
-        if (slot != null)
+        if (GameObject.GetComponent<ComponentType>().type == spell)
         {
-            slot.Remove();
-            slot = null;
+            if(GameObject.GetComponent<SpellHolder>().spell != null)
+            {
+                if (slot != null)
+                {
+                    slot.Remove();
+                    slot = null;
+                }
+                Debug.Log("BeginDrag");
+                canvasGroup.alpha = 0.6f;
+                canvasGroup.blocksRaycasts = false;
+            }
         }
-        Debug.Log("BeginDrag");
-        canvasGroup.alpha = 0.6f;
-        canvasGroup.blocksRaycasts = false;
+        else
+        {
+            if (slot != null)
+            {
+                slot.Remove();
+                slot = null;
+            }
+            Debug.Log("BeginDrag");
+            canvasGroup.alpha = 0.6f;
+            canvasGroup.blocksRaycasts = false;
+        } 
+        
     }
 
     //called at drag end
