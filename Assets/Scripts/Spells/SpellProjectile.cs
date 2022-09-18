@@ -12,7 +12,7 @@ public class SpellProjectile : MonoBehaviour
     /// <summary>
     /// Speed of the projectile
     /// </summary>
-    public float speed = 1.0f;
+    public float speed = 5.0f;
     /// <summary>
     /// used for properly coloring the projectiles
     /// </summary>
@@ -32,7 +32,7 @@ public class SpellProjectile : MonoBehaviour
 
     private void Update()
     {
-        rb.velocity = speed * gameObject.transform.right;
+        rb.velocity = speed * gameObject.transform.up;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
