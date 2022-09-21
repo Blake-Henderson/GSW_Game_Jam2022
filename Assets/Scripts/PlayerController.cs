@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     public SpriteRenderer spriteRenderer;
     [SerializeField] Slider HealthSlider;
 
-    public int maxHealth = 5;
+    public int maxHealth = 10;
     public int currentHealth;
 
     public float movementSpeed;
@@ -22,10 +22,10 @@ public class PlayerController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         direction = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
-        body.MovePosition(body.position+(direction * movementSpeed * Time.deltaTime));
+        body.MovePosition(body.position+(direction * movementSpeed * Time.fixedDeltaTime));
         HealthSlider.value = currentHealth;
     }
     //Player Damage

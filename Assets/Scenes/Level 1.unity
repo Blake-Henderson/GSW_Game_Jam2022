@@ -340,6 +340,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4268185173185445793, guid: 604844245afcfb2478b23e92b8e10a01, type: 3}
+      propertyPath: m_MaxValue
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4268185173935332197, guid: 604844245afcfb2478b23e92b8e10a01, type: 3}
+      propertyPath: maxHealth
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4268185173935332197, guid: 604844245afcfb2478b23e92b8e10a01, type: 3}
+      propertyPath: movementSpeed
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 4268185173935332198, guid: 604844245afcfb2478b23e92b8e10a01, type: 3}
       propertyPath: m_RootOrder
       value: 0
