@@ -120,7 +120,6 @@ public class EnemyAI : MonoBehaviour
         Vector2 lookDir = (Vector2)target.gameObject.transform.position - rb.position;
         float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg;
         rb.rotation = angle;
-        Debug.Log("we made it");
 
     }
 }
