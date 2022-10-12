@@ -80,6 +80,15 @@ public class EnemyAI : MonoBehaviour
         {
             currentWaypoint++;
         }
+
+        if (force.x >= 0.01f)
+        {
+            enemyFlip.localScale = new Vector3(-1f, 1f, 1f);
+        }
+        else if (force.x <= -0.01f)
+        {
+            enemyFlip.localScale = new Vector3(1f, 1f, 1f);
+        }
     }
 
 
@@ -93,7 +102,7 @@ public class EnemyAI : MonoBehaviour
         
         if (hit.collider != null)
         {
-            Debug.DrawRay(rayObject.transform.position, Vector2.up * hit.distance, Color.red);
+            //Debug.DrawRay(rayObject.transform.position, Vector2.up * hit.distance, Color.red);
             if (hit.transform.gameObject.tag == "Player")
             {
                 seeker.StartPath(rb.position, target.position, OnPathComplete);
@@ -117,9 +126,12 @@ public class EnemyAI : MonoBehaviour
             return;
 
         }
-        Vector2 lookDir = (Vector2)target.gameObject.transform.position - rb.position;
-        float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg;
-        rb.rotation = angle;
+
+        
+
+        //Vector2 lookDir = (Vector2)target.gameObject.transform.position - rb.position;
+        //float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg;
+        //rb.rotation = angle;
 
     }
 }
