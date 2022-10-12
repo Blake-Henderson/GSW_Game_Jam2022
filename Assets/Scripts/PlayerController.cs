@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -11,7 +12,7 @@ public class PlayerController : MonoBehaviour
 
     public int maxHealth = 10;
     public int currentHealth;
-
+    public string scene;
     public float movementSpeed;
 
     Vector2 direction;
@@ -19,6 +20,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         currentHealth = maxHealth;
+        scene = SceneManager.GetActiveScene().name;
     }
 
     // Update is called once per frame
@@ -35,9 +37,13 @@ public class PlayerController : MonoBehaviour
 
         if (currentHealth <= 0)
         {
-            Destroy(gameObject);
+            currentHealth = maxHealth;
+            SceneManager.LoadScene(scene);
+            
         }
         else if (currentHealth > maxHealth)
-            currentHealth = maxHealth;
+            {
+                currentHealth = maxHealth;
+            }
     }
 }

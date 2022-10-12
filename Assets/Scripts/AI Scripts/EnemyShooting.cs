@@ -37,6 +37,9 @@ public class EnemyShooting : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Vector2 lookDir = (Vector2)target.gameObject.transform.position - rb.position;
+        // float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg;
+        // rb.rotation = angle;
         
         attacktimer += Time.deltaTime;
         if (attacktimer >= coolDown)
